@@ -22,24 +22,31 @@ document.getElementById('btn-withdraw').addEventListener('click',function(){
     const withdrawTotalElement = document.getElementById('withdraw-total');
     const previousWithdrawTotalString = withdrawTotalElement.innerText;
     const previousWithdrawTotal = parseFloat(previousWithdrawTotalString);
-    
-    // step-4: 
-    const currentWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
-    // step-4.5:
-    withdrawTotalElement.innerText = currentWithdrawTotal;
+
+    // step-7:
+    withdrawInputFiled.value = '';
 
     // step-5: 
     const balanceTotalElement = document.getElementById('balance-total');
     const previousBalanceTotalString = balanceTotalElement.innerText;
     const previousBalanceTotal = parseFloat(previousBalanceTotalString);
 
+    if (newWithdrawAmount > previousBalanceTotal) {
+        alert('Tor Baap er bank e ato taka naaai :) ');
+        return;
+    }
+
+     // step-4: 
+     const currentWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
+     // step-4.5:
+     withdrawTotalElement.innerText = currentWithdrawTotal;
+
     // step-6:
     const currentBalanceTotal = previousBalanceTotal - newWithdrawAmount;
     // step-6.5
     balanceTotalElement.innerText = currentBalanceTotal;
 
-    // step-7:
-    withdrawInputFiled.value = '';
+    
 
 
 })
